@@ -1,0 +1,28 @@
+* Ejercicio Filósofos
+En este caso práctico se va a desarrollar una solución multitarea al problema clásico de la cena
+de filósofos.
+En una mesa redonda hay N filósofos sentados. En total tiene N palillos para comer arroz,
+estando cada palillo compartido por dos filósofos, uno a la izquierda y otro a la derecha. Como
+buenos filósofos, se dedican a pensar, aunque de vez en cuando les entra hambre y quieren
+comer. Para poder comer, un filósofo necesita utilizar los dos palillos que hay a sus lados.
+Para implementar este problema se debe crear un programa principal que cree N hilos
+ejecutando el mismo código. Cada hilo representa un filósofo. Una vez creado, se realiza un
+bucle infinito de espera. Cada uno de los hilos tendrá que realizar los siguientes pasos:
+1. Imprimir un mensaje por pantalla (“Filósofo i pensando”), siendo i el identificador del
+filósofo.
+2. Pensar durante un cierto tiempo aleatorio.
+3. Imprimir un mensaje por pantalla (“Filósofo i quiere comer”).
+4. Intentar coger los palillos que necesita para comer. El filósofo 0 necesitará los palillos 0
+y 1, el filósofo 1, los palillos 1 y 2, y así sucesivamente.
+5. Cuando tenga el control de los palillos, imprimirá un mensaje en pantalla “Filósofo i
+comiendo”.
+6. El filósofo está comiendo durante un tiempo aleatorio.
+7. Una vez que ha finalizado de comer, dejará los palillos en su sitio.
+8. Volver al paso 1.
+Sin embargo, se pueden producir interbloqueos si, por ejemplo, todos los filósofos quieren
+comer a la vez. Si todos consiguen coger el palillo de su izquierda, ninguno podrá coger el de su
+derecha. Para ello se plantean las siguientes soluciones:
+- Permitir que como máximo haya N-1 filósofos sentados a la mesa.
+- Permitir a cada filósofo coger sus palillos solamente si ambos palillos están libres.
+- Solución asimétrica: un filósofo impar coge primero el palillo de la izquierda y luego el
+de la derecha. Un filósofo par los coge en el orden inverso.
